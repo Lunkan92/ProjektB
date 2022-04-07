@@ -13,7 +13,7 @@ using Weather.Consoles;
 
 namespace Weather.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+   [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ConsolePage : ContentPage
     {
         public ConsolePage()

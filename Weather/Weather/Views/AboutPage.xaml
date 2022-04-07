@@ -16,7 +16,7 @@
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
-                        <Span Text="Created by Martin Lenart"/>
+                        <Span Text="Created by Fredric Lundgren"/>
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>

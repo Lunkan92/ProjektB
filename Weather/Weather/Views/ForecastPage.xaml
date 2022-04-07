@@ -3,8 +3,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Weather.Views.ForecastPage">
     <ContentPage.Content>
+        
         <StackLayout>
-            <Label>Your code to present the weather data for example in a ListView</Label>
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Source="https://images.pexels.com/photos/7416707/pexels-photo-7416707.jpeg" Aspect="AspectFill" HorizontalOptions="Center" HeightRequest="350" VerticalOptions="Fill"/>
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                    <Label x:Name="WeatherLabel"
+                           
+                           FontSize="Header"
+                           Text="Forecast for"
+                           TextColor="Black"
+                           FontAttributes="Italic">
+
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+            <Button Text="Refresh" FontSize="Small" Clicked="Button_Clicked" />
+            <Label FontSize="Header" TextColor="Black">
+                
+            </Label>
+            <ListView x:Name="weatherListView" Margin="5" RowHeight="40">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            <StackLayout BackgroundColor="White" Orientation="Vertical">
+                               
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                    <Label Text="{Binding DateTime,Mode=OneTime}" FormattedText="dd"></Label>
+                                    <Label Text="{Binding DateTime}" 
+                                           FontSize="20" TextColor="ForestGreen"></Label>
+                                    
+                                    <Label Text="temperature:" TextColor="Black"></Label>
+                                    <Label Text="{Binding Temperature }" FontSize="15" TextColor="Black"></Label>
+                                    <Label Text="degC," FontSize="15" TextColor="Black"></Label>
+                                    <Label Text="wind:" TextColor="Black"></Label>
+                                    <Label Text="{Binding WindSpeed}" FontSize="15" TextColor="Black"></Label>
+                                    <Label Text="m/s" TextColor="Black"></Label>
+                                    <Label Text="{Binding Description}" FontSize="15" TextColor="Black"></Label>
+                                </StackLayout>
+                             </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>    
         </StackLayout>
     </ContentPage.Content>
+    
 </ContentPage>
+    

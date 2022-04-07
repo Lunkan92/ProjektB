@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -35,6 +28,13 @@ namespace Weather.Views
                 {
                     new MainPageFlyoutMenuItem { Id = 0, Title = "About Weather", TargetType=typeof(AboutPage) },
                     new MainPageFlyoutMenuItem { Id = 1, Title = "Debug Console", TargetType=typeof(ConsolePage) },
+                    new MainPageFlyoutMenuItem { Id = 2, Title = "Irsta", TargetType=typeof(ForecastPage) },
+                     new MainPageFlyoutMenuItem { Id = 3, Title = "Västerås", TargetType=typeof(ForecastPage) },
+                       new MainPageFlyoutMenuItem { Id = 4, Title = "Mikkeli", TargetType=typeof(ForecastPage) },
+                         new MainPageFlyoutMenuItem { Id = 5, Title = "Malmö", TargetType=typeof(ForecastPage) },
+                           new MainPageFlyoutMenuItem { Id = 6, Title = "Växjö", TargetType=typeof(ForecastPage) },
+                             new MainPageFlyoutMenuItem { Id = 7, Title = "Linköping", TargetType=typeof(ForecastPage) },
+
                 });
             }
         }
