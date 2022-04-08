@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Weather.Models;
 using Weather.Services;
@@ -29,8 +30,11 @@ namespace Weather.Views
 
             base.OnAppearing();
 
-            WeatherLabel.Text = Title;
-            //weatherListView.ItemsSource = groupedforecast.City;
+            weatherLabel.Text = Title;
+
+            
+          
+            
             //Code here will run right before the screen appears
             //You want to set the Title or set the City
 
@@ -46,21 +50,29 @@ namespace Weather.Views
             //Heare you load the forecast 
             await Task.Run(() =>
             {
-                Task<Forecast> t1 = service.GetForecastAsync(Title);
+                Task<Forecast> forecast = service.GetForecastAsync(Title);
+
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    weatherListView.ItemsSource = t1.Result.Items;
+                    groupedforecast.Items = forecast.Result.Items.GroupBy(f => f.DateTime.Date);
+                    weatherListView.ItemsSource = groupedforecast.Items;
+                    
                 });
-
             });
-            //await service.GetForecastAsync("Miami");
+
+           
+
+
+         
 
 
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-           
+            
+            
+ 
 
         }
 
