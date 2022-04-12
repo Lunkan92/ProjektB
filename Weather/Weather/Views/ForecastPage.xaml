@@ -5,15 +5,15 @@
     <ContentPage.Content>
         
         <StackLayout>
-
-            <Label x:Name="weatherLabel" Text="{Binding Title , StringFormat= 'Forecast for {Title}'}" FontSize="Header"></Label>
+            <Button Text="Update" Clicked="Button_Clicked_1" />
+            <Label x:Name="weatherLabel"  FontSize="Header" TextColor="Black" ></Label>
             <ListView
              x:Name="weatherListView" IsGroupingEnabled="True" HasUnevenRows="True">
                 <ListView.GroupHeaderTemplate>
                     <DataTemplate>
                         <ViewCell Height="40">
                             <StackLayout HeightRequest="40">
-                                <Label FontSize="16" TextColor="Black" FontAttributes="Bold" Text="{Binding Key, StringFormat='{0:dddd,dd,MMMM,yyyy}'}"></Label>
+                                <Label FontSize="16" BackgroundColor="White" HorizontalOptions="Start"  TextColor="Black" FontAttributes="Bold" Text="{Binding Key, StringFormat='{0:dddd,dd,MMMM,yyyy}'}" ></Label>
                                 
                                 
                             </StackLayout>
@@ -26,7 +26,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label FontSize="16" TextColor="Blue" Text="{Binding DateTime, StringFormat='{0:HH:mm}'}"></Label>
+                                <Label FontSize="16" TextColor="Red" Text="{Binding DateTime, StringFormat='{0:HH:mm}'}"></Label>
                                 <Label Text="{Binding .}"/>
                             </StackLayout>
                         </ViewCell>
@@ -35,25 +35,7 @@
                 
                 
                 
-                <!--<ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell Height="40">
-                            <StackLayout BackgroundColor="White" Orientation="Vertical">
-                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                                    <Label Text="{Binding Key, StringFormat='{HH:mm:ss}'}"></Label>
-                                   <Label Text="temperature:" TextColor="Black"></Label>
-                                    <Label Text="{Binding Temperature }" FontSize="15" TextColor="Black"></Label>
-                                    <Label Text="degC," FontSize="15" TextColor="Black"></Label>
-                                    <Label Text="wind:" TextColor="Black"></Label>
-                                    <Label Text="{Binding WindSpeed}" FontSize="15" TextColor="Black"></Label>
-                                    <Label Text="m/s" TextColor="Black"></Label>
-                                    <Label Text="{Binding Description}" FontSize="15" TextColor="Black"></Label>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                       
-                    </DataTemplate>
-                </ListView.ItemTemplate>-->
+                
             </ListView>
             
             

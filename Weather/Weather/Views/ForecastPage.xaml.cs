@@ -30,7 +30,9 @@ namespace Weather.Views
 
             base.OnAppearing();
 
-            weatherLabel.Text = Title;
+            weatherLabel.Text = $"Weather in {Title}";
+
+           
 
             
           
@@ -47,35 +49,19 @@ namespace Weather.Views
 
         private async Task LoadForecast()
         {
-            //Heare you load the forecast 
-            await Task.Run(() =>
-            {
-                Task<Forecast> forecast = service.GetForecastAsync(Title);
+            
 
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    groupedforecast.Items = forecast.Result.Items.GroupBy(f => f.DateTime.Date);
-                    weatherListView.ItemsSource = groupedforecast.Items;
-                    
-                });
-            });
-
-           
-
-
-         
+            Forecast fc = await service.GetForecastAsync(Title);
+            groupedforecast.Items = fc.Items.GroupBy (f => f.DateTime.Date);
+            weatherListView.ItemsSource = groupedforecast.Items;
 
 
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+  
+        private async void Button_Clicked_1(object sender, EventArgs e)
         {
-            
-            
- 
-
+            await LoadForecast();
         }
-
-        
     }
 }
